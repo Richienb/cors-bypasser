@@ -1,6 +1,6 @@
 # CORS Bypasser
 
-A simple tool to bypass CORS.
+A simple API to bypass CORS.
 
 ## How to use
 
