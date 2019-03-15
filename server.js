@@ -1,22 +1,33 @@
-// server.js
-// where your node app starts
+const express = require('express')
+const app = express()
+const request = require('request')
 
-// init project
-const express = require('express');
-const app = express();
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+    next()
+})
 
-// we've started you off with Express, 
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
+app.get('/', (_req, res) => {
+    res.sendFile(__dirname + 'index.html')
+})
 
-// http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'));
+const requestParams = (url, type, body) => ({
+    url,
+    gzip: true,
+    method: type ? type : "GET",
+    body,
+    headers: {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3163.100 Safari/537.36"
+    }
+})
 
-// http://expressjs.com/en/starter/basic-routing.html
-app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/views/index.html');
-});
+app.get('/bypass/*', (req, res) => {
+    request(requestParams(req.path.substr(8), "GET"), (err, _, body) => {
+        res.send(body)
+    })
+})
 
-// listen for requests :)
-const listener = app.listen(process.env.PORT, function() {
-  console.log('Your app is listening on port ' + listener.address().port);
-});
+const listener = app.listen(process.env.PORT, () => {
+    console.log(`Your app is listening on port ${listener.address().port}`)
+})
