@@ -1,7 +1,7 @@
-const express = require('express')
+const express = require("express")
 const app = express()
-const request = require('request')
-const path = require('path')
+const request = require("request")
+const path = require("path")
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
@@ -9,8 +9,8 @@ app.use((req, res, next) => {
     next()
 })
 
-app.get('/', (_req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'))
+app.get("/", (_req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"))
 })
 
 const requestParams = (url, type, body) => ({
@@ -22,12 +22,10 @@ const requestParams = (url, type, body) => ({
     }
 })
 
-app.all('/bypass/*', (req, res) => {
+app.all("/bypass/*", (req, res) => {
     request(requestParams(req.path.substr(8), req.method), (err, _, body) => {
         res.send(body)
     })
 })
 
-const listener = app.listen(process.env.PORT, () => {
-    console.log(`Your app is listening on port ${listener.address().port}`)
-})
+app.listen(process.env.PORT)

@@ -1,7 +1,7 @@
 {
   "name": "cors-bypasser",
   "version": "1.0.0",
-  "description": "A simple Node app built on Express, instantly up and running.",
+  "description": "A simple API to bypass CORS.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -11,7 +11,7 @@
     "request": "^2.88.0"
   },
   "engines": {
-    "node": "8.x"
+    "node": "10.x"
   },
   "repository": {
     "url": "https://glitch.com/edit/#!/hello-express"
