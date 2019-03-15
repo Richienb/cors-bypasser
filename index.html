@@ -11,7 +11,7 @@
     <title>CORS Bypasser</title>
     <meta name="description" content="A simple API to bypass CORS.">
 
-    <link rel="shortcut icon" href="https://cdn.glitch.com/374c46bd-22ab-4f22-8467-9bf444a5a06b%2Ffavicon.ico?1552302718992">
+    <link rel="shortcut icon" href="https://cdn.glitch.com/7604243d-93b2-4d5c-b6ac-de6999bfb041%2Ffavicon.ico?1552637718767">
 
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@1.0.1/dist/material-components-web.min.css">
 
@@ -43,6 +43,10 @@
             padding: 20px;
             min-height: calc(100vh - 80px);
         }
+        
+        :root body .main-content code {
+            background-color: #E0E0E0;
+        }
     </style>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
@@ -56,8 +60,10 @@
     <main class="main-content mdc-typography mdc-elevation--z8">
         <h1 class="mdc-typography--headline2">CORS Bypasser</h1>
         <p class="mdc-typography--body1">A simple API to bypass CORS.</p>
-      <h2 class="mdc-typography--headline3">How to use</h2>
-      <p class="mdc-typography--body1">Simply append <code></code> to your HTTP requests.</p>
+        <h2 class="mdc-typography--headline3">How to use</h2>
+        <p class="mdc-typography--body1">Simply append <code>https://cors-bypasser.glitch.me/bypass/</code> to your HTTP requests.</p>
+        <h2 class="mdc-typography--headline3">Example usage</h2>
+        <p class="mdc-typography--body1">Replace <code>https://google.com</code> with <code>https://cors-bypasser.glitch.me/bypass/https://google.com</code> to bypass <code>Access to XMLHttpRequest at 'https://google.com' from origin 'YOUR ORIGIN' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.</code></p>
     </main>
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
     <script src="https://unpkg.com/material-components-web@1.0.1/dist/material-components-web.min.js"></script>
